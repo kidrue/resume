@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的简历</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        img{
+            display: block;
+        }
+
+        body {
+            background-color: #eee;
+            font-size: 14px;
+            color: #666;
+            border-radius: 7px;
+        }
+
+        .contain {
+            width: 950px;
+            margin: 0 auto;
+            margin-top: 15px;
+            padding:  15px;
+            padding-top: 0;
+            /* min-width: 350px; */
+            background-color: #fff;
+            border-top: 50px solid rgb(34, 62, 100);
+        }
+        .titleCon{
+            width: 90%;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        .title{
+            display: flex;
+            align-items: center;
+            font-size: 22px;
+            color: rgb(34, 62, 100);
+            font-weight: 700;
+            border-bottom: 1px solid #999;
+        }
+        .title img{
+            margin-right: 15px;
+        }
+        .titleConten{
+            margin-top: 15px;
+        }
+        .contentHead{
+            display: flex;
+            color: rgb(34, 62, 100);
+            font-weight: 700;
+        }
+        .contentHead div{
+            width: 33%;
+            padding-left: 15px;
+        }
+        .tips{
+            position: relative;
+        }
+        .tips::before{
+            position: absolute;
+            top: 7px;
+            left: 0;
+            content: " ";
+            width: 5px;
+            height: 5px;
+
+            background-color: rgb(34, 62, 100);
+            z-index: 9;
+            border-radius: 100%;
+        }
+        .contentDesc{
+            margin-top: 15px;
+        }
+  
+
+        .head {
+            display: flex;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .head .info {
+            margin: 0 45px;
+            margin-top: 30px;
+        }
+
+        .head  .detail{
+            display: flex;
+            
+        }
+        .detail div{
+            margin-top: 30px;
+            padding:  0 15px;
+        
+        }
+        .detail div:not(:last-child){
+            border-right: 1px solid #999;
+        }
+
+        .headImg {
+            width: 150px;
+            height: 150px;
+            padding: 15px;
+            background-color: rgb(34, 62, 100);
+            border-radius: 0 0 100% 100%;
+        }
+
+        .headImg img {
+            width: 100%;
+            height: 100%;
+            background-color: beige;
+            border-radius: 100%;
+        }
+        .name{
+            font-size: 36px;
+            font-weight: 900;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contain">
+        <div class="head">
+            <div class="headImg">
+                <img src="./head.jpg" alt="" srcset="">
+            </div>
+            <div class="info">
+                <div class="name">张琪</div>
+                <div class="detail">
+                    <div>男</div>
+                    <div>24岁</div>
+                    <div>2年</div>
+                    <div>17671044229</div>
+                    <div>2671613428@qq.com</div>
+                    <div>WEB前端开发</div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+        <div class="titleCon">
+            <div class="title">
+                <img src="./icon.png" alt="">
+                <div>
+                    教育背景
+                </div>
+            </div>
+            <div class="titleConten">
+                <div class="contentHead">
+                    <div class="tips">2016-9 到 2019-6</div>
+                    <div>湖北理工学院</div>
+                    <div>专科/计算机应用技术</div>
+                </div>
+            </div>
+        </div>
+        <div class="titleCon">
+            <div class="title">
+                <img src="./icon.png" alt="">
+                <div>
+                    教育背景
+                </div>
+            </div>
+            <div class="titleConten">
+                <div class="contentHead">
+                    <div class="tips">2016-9 到 2019-6</div>
+                    <div>湖北理工学院</div>
+                    <div>专科/计算机应用技术</div>
+                </div>
+                <div class="contentDesc">
+                    依据产品需求与UI设计师、后台工程师协同工作，完成高质量的web前端开发。优化web前端应用，与后端开发团队紧密配合，确保代码有效对接，优化网站前端性能页面通过标准校验，提高用户体验，并兼容各主流浏览器
+                </div>
+            </div>
+        </div>
+  
+        <!-- <div class="title">个人简历</div> -->
+
+
+
+    </div>
+</body>
+
+</html>

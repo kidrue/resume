@@ -1,190 +1,273 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的简历</title>
+    <title>个人简历 | 资深前端开发工程师</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        img{
-            display: block;
-        }
-
         body {
-            background-color: #eee;
-            font-size: 14px;
-            color: #666;
-            border-radius: 7px;
+            font-family: 'Inter', -apple-system, sans-serif;
+            scroll-behavior: smooth;
         }
-
-        .contain {
-            width: 950px;
-            margin: 0 auto;
-            margin-top: 15px;
-            padding:  15px;
-            padding-top: 0;
-            /* min-width: 350px; */
-            background-color: #fff;
-            border-top: 50px solid rgb(34, 62, 100);
+        .tech-tag {
+            @apply px-2 py-1 bg-indigo-900/30 text-indigo-300 border border-indigo-800/50 rounded text-xs font-mono;
         }
-        .titleCon{
-            width: 90%;
-            margin: 0 auto;
-            margin-top: 30px;
+        .print-only { display: none; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block; }
+            body { background: white; color: black; }
+            .bg-slate-900 { background: white !important; }
+            .text-slate-400, .text-indigo-400 { color: #444 !important; }
+            .border-slate-800 { border-color: #eee !important; }
+            .shadow-xl { shadow: none !important; }
         }
-        .title{
-            display: flex;
-            align-items: center;
-            font-size: 22px;
-            color: rgb(34, 62, 100);
-            font-weight: 700;
-            border-bottom: 1px solid #999;
-        }
-        .title img{
-            margin-right: 15px;
-        }
-        .titleConten{
-            margin-top: 15px;
-        }
-        .contentHead{
-            display: flex;
-            color: rgb(34, 62, 100);
-            font-weight: 700;
-        }
-        .contentHead div{
-            width: 33%;
-            padding-left: 15px;
-        }
-        .tips{
-            position: relative;
-        }
-        .tips::before{
-            position: absolute;
-            top: 7px;
-            left: 0;
-            content: " ";
-            width: 5px;
-            height: 5px;
-
-            background-color: rgb(34, 62, 100);
-            z-index: 9;
-            border-radius: 100%;
-        }
-        .contentDesc{
-            margin-top: 15px;
-        }
-  
-
-        .head {
-            display: flex;
-            width: 90%;
-            margin: 0 auto;
-        }
-
-        .head .info {
-            margin: 0 45px;
-            margin-top: 30px;
-        }
-
-        .head  .detail{
-            display: flex;
-            
-        }
-        .detail div{
-            margin-top: 30px;
-            padding:  0 15px;
-        
-        }
-        .detail div:not(:last-child){
-            border-right: 1px solid #999;
-        }
-
-        .headImg {
-            width: 150px;
-            height: 150px;
-            padding: 15px;
-            background-color: rgb(34, 62, 100);
-            border-radius: 0 0 100% 100%;
-        }
-
-        .headImg img {
-            width: 100%;
-            height: 100%;
-            background-color: beige;
-            border-radius: 100%;
-        }
-        .name{
-            font-size: 36px;
-            font-weight: 900;
-            color: #333;
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
         }
     </style>
 </head>
+<body class="bg-slate-900 text-slate-200 antialiased leading-relaxed">
 
-<body>
-    <div class="contain">
-        <div class="head">
-            <div class="headImg">
-                <img src="./head.jpg" alt="" srcset="">
-            </div>
-            <div class="info">
-                <div class="name">张琪</div>
-                <div class="detail">
-                    <div>男</div>
-                    <div>24岁</div>
-                    <div>2年</div>
-                    <div>17671044229</div>
-                    <div>2671613428@qq.com</div>
-                    <div>WEB前端开发</div>
+    <button onclick="window.print()" class="no-print fixed bottom-8 right-8 z-50 bg-indigo-600 hover:bg-indigo-500 text-white p-4 rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 group">
+        <i data-lucide="printer" class="w-6 h-6"></i>
+        <span class="absolute right-16 bg-slate-800 px-3 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">导出 PDF / 打印简历</span>
+    </button>
+
+    <div class="max-w-5xl mx-auto px-6 py-12 lg:py-20">
+        
+        <header class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start mb-16">
+            <div class="lg:col-span-2">
+                <div class="flex items-center space-x-4 mb-4">
+                    <h1 class="text-5xl font-bold bg-gradient-to-r from-white to-slate-500 bg-clip-text text-transparent">
+                        张琪
+                    </h1>
+                    <span class="px-3 py-1 bg-indigo-600/20 text-indigo-400 border border-indigo-600/30 rounded-full text-sm font-medium">6年经验 | 资深前端开发</span>
                 </div>
-                <div></div>
+                <p class="text-xl text-slate-400 mb-6 font-light">
+                    深耕前端架构与性能优化，专注于 <span class="text-indigo-400 italic">Vue/React 生态</span> 与 <span class="text-indigo-400 italic">复杂工程化解决方案</span>
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-slate-400">
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i>
+                        <span>期望职位：前端开发工程师</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <i data-lucide="banknote" class="w-4 h-4"></i>
+                        <span>期望薪资：14k - 18k</span>
+                    </div>
+                    <div class="flex items-center space-x-2 hover:text-indigo-400 transition-colors cursor-pointer">
+                        <i data-lucide="phone" class="w-4 h-4"></i>
+                        <span>123-4567-8910</span>
+                    </div>
+                    <div class="flex items-center space-x-2 hover:text-indigo-400 transition-colors cursor-pointer">
+                        <i data-lucide="mail" class="w-4 h-4"></i>
+                        <span>2671613428@qq.com</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="titleCon">
-            <div class="title">
-                <img src="./icon.png" alt="">
+            
+            <div class="glass-card p-6 rounded-2xl flex flex-col justify-center space-y-4">
+                <div class="flex justify-between items-end border-b border-slate-700 pb-2">
+                    <span class="text-slate-500 text-sm uppercase tracking-wider font-semibold">Technical Stack</span>
+                    <i data-lucide="layers" class="text-indigo-500 w-5 h-5"></i>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="tech-tag">React 18</span>
+                    <span class="tech-tag">Vue 3</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Vite</span>
+                    <span class="tech-tag">Uni-App</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">ECharts</span>
+                    <span class="tech-tag">Canvas</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 gap-12">
+
+            <section>
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="h-8 w-1 bg-indigo-600"></div>
+                    <h2 class="text-2xl font-bold tracking-tight">核心项目经历 / Project Highlights</h2>
+                </div>
+
+                <div class="space-y-12">
+                    <div class="relative group">
+                        <div class="absolute -left-4 top-0 h-full w-0.5 bg-slate-800 group-hover:bg-indigo-600 transition-colors"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                Slide-Translate 浏览器沉浸式翻译浏览器插件
+                                <a href="https://doc2x.noedgeai.com/downloadDeskTop?_gl=1*o5bypv*_ga*Nzc1Nzc1NjU2LjE3NzEzMjQ0MjE.*_ga_JKHPG4EQGE*czE3NzEzMjQ0MjAkbzEkZzAkdDE3NzEzMjQ0MjAkajYwJGwwJGgxMDcyNzE5MDg1byecode" class="ml-3 text-indigo-400 hover:text-indigo-300"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                            </h3>
+                            <span class="text-slate-500 font-mono text-sm">2025.07 - 2026.02</span>
+                        </div>
+                        
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="tech-tag text-[10px]">Plasmo</span>
+                            <span class="tech-tag text-[10px]">IndexedDB</span>
+                            <span class="tech-tag text-[10px]">MutationObserver</span>
+                            <span class="tech-tag text-[10px]">Web Worker</span>
+                        </div>
+
+                        <div class="space-y-4 text-slate-400">
+                            <p class="leading-relaxed">基于 Plasmo 框架开发的现代化翻译扩展，通过高度工程化的手段解决了复杂网页内容实时翻译的性能难题。</p>
+                            
+                            <ul class="list-none space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>自研分层缓存系统 (L1/L2 Cache)：</strong> 构建了基于 <strong>Memory (L1) + IndexedDB (L2)</strong> 的持久化架构，采用 <strong>LRU 淘汰算法</strong> 与文本规范化算法，将 API 缓存命中率提升至 <span class="text-indigo-400 font-semibold">60-80%</span>，响应速度提升 <span class="text-indigo-400 font-semibold">10-50 倍</span>。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>复杂 DOM 监听与增量渲染：</strong> 利用 <strong>MutationObserver</strong> 深度定制规则引擎，实现对 SPA 动态加载内容的精准识别与实时翻译，极大地降低了长列表滚动时的 CPU 占用率。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>核心技术攻关：</strong> 开发 DOM树 遍历筛选算法和规则引擎，精准识别可翻译节点并按照预期进行插入。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="relative group">
+                        <div class="absolute -left-4 top-0 h-full w-0.5 bg-slate-800 group-hover:bg-indigo-600 transition-colors"></div>
+                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                            <h3 class="text-xl font-bold text-white flex items-center">
+                                ByeCode 工业级低代码平台
+                                <a href="https://www.byecode.com" class="ml-3 text-indigo-400 hover:text-indigo-300"><i data-lucide="external-link" class="w-4 h-4"></i></a>
+                            </h3>
+                            <span class="text-slate-500 font-mono text-sm">2022.03 - 2025.06</span>
+                        </div>
+                        
+                        <div class="mb-4 flex flex-wrap gap-2">
+                            <span class="tech-tag text-[10px]">Vite 深度优化</span>
+                            <span class="tech-tag text-[10px]">LLM Integration</span>
+                            <span class="tech-tag text-[10px]">WebSocket</span>
+                            <span class="tech-tag text-[10px]">Virtual List</span>
+                        </div>
+
+                        <div class="space-y-4 text-slate-400">
+                            <p class="leading-relaxed">主导具备复杂数据流、多端兼容及 AI 大模型集成的低代码基础设施开发。</p>
+                            
+                            <ul class="list-none space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>极致性能工程化：</strong> 针对 5000+ 节点的复杂画布，实施 <strong>Vite 分包策略、按需加载与虚拟滚动优化</strong>，将首屏加载耗时从秒级降低至毫秒级，首屏速度提升 <span class="text-indigo-400 font-semibold">76%</span>。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>AI 工作流编排：</strong> 标准化封装 DeepSeek、智谱等主流大模型节点，设计基于 <strong>JSON-Schema</strong> 的动态表单驱动引擎，支持跨平台（Web/小程序）组件同构。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-indigo-500 mr-2">▶</span>
+                                    <span><strong>复杂交互体系：</strong> 引入 <strong>Motion 动效物理引擎</strong> 提升 UI 交互细腻度，基于 <strong>WebSocket 心跳机制</strong> 实现全链路实时数据同步与推送。</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <div class="flex items-center space-x-3 mb-8">
+                    <div class="h-8 w-1 bg-indigo-600"></div>
+                    <h2 class="text-2xl font-bold tracking-tight">职业发展路径 / Professional Timeline</h2>
+                </div>
+
+                <div class="space-y-8">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 glass-card p-6 rounded-xl">
+                        <div class="md:col-span-1">
+                            <div class="text-white font-bold">智识无垠科技</div>
+                            <div class="text-slate-500 text-sm italic">资深前端开发</div>
+                            <div class="text-indigo-400/80 text-xs font-mono mt-2">2025.07 - 2026.02</div>
+                        </div>
+                        <div class="md:col-span-3 text-slate-400 text-sm leading-relaxed border-l border-slate-700 md:pl-6 pl-0">
+                            负责 AI 赋能的翻译产品线架构。制定沉浸式翻译的核心算法规范，主导高性能插件基建开发。
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 glass-card p-6 rounded-xl border-l-4 border-indigo-600">
+                        <div class="md:col-span-1">
+                            <div class="text-white font-bold">柏思爱技术</div>
+                            <div class="text-slate-500 text-sm italic">前端核心专家</div>
+                            <div class="text-indigo-400/80 text-xs font-mono mt-2">2022.03 - 2025.06</div>
+                        </div>
+                        <div class="md:col-span-3 text-slate-400 text-sm leading-relaxed border-l border-slate-700 md:pl-6 pl-0">
+                            从执行转为<b>技术统筹</b>。主导 Vite 分包优化与动效体系建设。推动团队代码规范与 Hooks 沉淀，提升跨项目复用率 40% 以上。
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 glass-card p-6 rounded-xl">
+                        <div class="md:col-span-1">
+                            <div class="text-white font-bold">欢动科技</div>
+                            <div class="text-slate-500 text-sm italic">前端开发</div>
+                            <div class="text-indigo-400/80 text-xs font-mono mt-2">2021.10 - 2022.02</div>
+                        </div>
+                        <div class="md:col-span-3 text-slate-400 text-sm leading-relaxed border-l border-slate-700 md:pl-6 pl-0">
+                            使用进行 Hybrid App 混合开发。负责支付、核销等核心交易模块开发，把控代码质量与选型方案。
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                    教育背景
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="h-6 w-1 bg-indigo-600"></div>
+                        <h2 class="text-xl font-bold tracking-tight">教育背景</h2>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h4 class="text-white font-bold">湖北理工学院</h4>
+                                <p class="text-slate-400">计算机应用技术 · 大专</p>
+                            </div>
+                            <span class="text-slate-500 font-mono text-sm">2016 - 2019</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="titleConten">
-                <div class="contentHead">
-                    <div class="tips">2016-9 到 2019-6</div>
-                    <div>湖北理工学院</div>
-                    <div>专科/计算机应用技术</div>
-                </div>
-            </div>
-        </div>
-        <div class="titleCon">
-            <div class="title">
-                <img src="./icon.png" alt="">
                 <div>
-                    教育背景
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="h-6 w-1 bg-indigo-600"></div>
+                        <h2 class="text-xl font-bold tracking-tight">核心能力集</h2>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-sm">
+                            <span class="text-indigo-400 font-bold block mb-1 underline decoration-indigo-500/30">架构思维</span>
+                            Monorepo, CI/CD, 技术选型
+                        </div>
+                        <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-sm">
+                            <span class="text-indigo-400 font-bold block mb-1 underline decoration-indigo-500/30">性能调优</span>
+                            Lighthouse, 内存泄露治理
+                        </div>
+                        <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-sm">
+                            <span class="text-indigo-400 font-bold block mb-1 underline decoration-indigo-500/30">跨端方案</span>
+                            Uni-app, Taro, APICloud
+                        </div>
+                        <div class="p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-sm">
+                            <span class="text-indigo-400 font-bold block mb-1 underline decoration-indigo-500/30">团队领导</span>
+                            Code Review, 敏捷开发推进
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="titleConten">
-                <div class="contentHead">
-                    <div class="tips">2016-9 到 2019-6</div>
-                    <div>湖北理工学院</div>
-                    <div>专科/计算机应用技术</div>
-                </div>
-                <div class="contentDesc">
-                    依据产品需求与UI设计师、后台工程师协同工作，完成高质量的web前端开发。优化web前端应用，与后端开发团队紧密配合，确保代码有效对接，优化网站前端性能页面通过标准校验，提高用户体验，并兼容各主流浏览器
-                </div>
-            </div>
-        </div>
-  
-        <!-- <div class="title">个人简历</div> -->
+            </section>
+        </main>
 
-
-
+        <footer class="mt-20 pt-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+            <p>© 2026 简历内容占位. Built with Lucide, Tailwind CSS & Developer Passion.</p>
+        </footer>
     </div>
-</body>
 
+    <script>
+        // 初始化图标
+        lucide.createIcons();
+    </script>
+</body>
 </html>
